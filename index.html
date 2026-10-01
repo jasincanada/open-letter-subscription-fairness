@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Letter to all Parties</title>
+  <meta name="description" content="An open letter asking every federal, provincial and territorial political party in Canada to make cancellation as easy as subscription.">
+  <style>
+    :root {
+      --paper: #f4f1ea;
+      --sheet: #fbf9f5;
+      --ink: #1c1915;
+      --muted: #3f3a34;
+      --line: #d5cec3;
+      --line-strong: #1c1915;
+      --accent: #1e3f56;
+      --accent-hover: #0f2a3b;
+      --quote: #efe8dc;
+      --card: #f7f4ee;
+      --focus: #0b5cab;
+      --warn: #3f3428;
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #141311;
+        --sheet: #1c1b18;
+        --ink: #f3efe6;
+        --muted: #d2cbc0;
+        --line: #3c3832;
+        --line-strong: #f3efe6;
+        --accent: #9ec8e4;
+        --accent-hover: #d5ebf8;
+        --quote: #26231e;
+        --card: #221f1b;
+        --focus: #f0c56b;
+        --warn: #e6dccb;
+        color-scheme: dark;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+      font-size: 1.125rem;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+
+    .skip {
+      position: absolute;
+      left: 0.75rem;
+      top: 0.75rem;
+      transform: translateY(-150%);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.6rem 0.9rem;
+      z-index: 10;
+      text-decoration: none;
+    }
+
+    .skip:focus { transform: none; }
+
+    .wrap {
+      width: min(44rem, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1.5rem 0 4rem;
+    }
+
+    header.letterhead {
+      border-top: 0.35rem solid var(--line-strong);
+      padding-top: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 650;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2rem, 6vw, 2.85rem);
+      line-height: 1.12;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+
+    .addressee, .dateline {
+      margin: 0.25rem 0;
+      color: var(--muted);
+    }
+
+    .dateline { font-style: italic; }
+
+    nav.jumps {
+      margin: 1.6rem 0 0;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    nav.jumps p {
+      margin: 0 0 0.4rem;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 650;
+    }
+
+    nav.jumps ol {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    h2 {
+      margin: 2.4rem 0 0.8rem;
+      font-size: clamp(1.45rem, 3vw, 1.75rem);
+      line-height: 1.25;
+      font-weight: 650;
+    }
+
+    h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.15rem;
+      line-height: 1.3;
+    }
+
+    p { margin: 0 0 1rem; }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 0.16em;
+    }
+
+    a:hover { color: var(--accent-hover); }
+
+    a:focus-visible, button:focus-visible, .button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    blockquote {
+      margin: 1.6rem 0;
+      padding: 1.15rem 1.2rem;
+      background: var(--quote);
+      border-left: 0.35rem solid var(--line-strong);
+      font-size: 1.28rem;
+      line-height: 1.45;
+    }
+
+    blockquote p { margin: 0; }
+
+    .cards {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .cards li {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 0.95rem 1rem 0.85rem;
+    }
+
+    .num {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .questions {
+      margin: 0.4rem 0 0;
+      padding-left: 1.25rem;
+    }
+
+    .questions li { margin: 0 0 0.85rem; }
+
+    .questions li strong {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .signature {
+      margin-top: 2.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .signature p { margin: 0.15rem 0; }
+
+    .comments {
+      margin-top: 2.2rem;
+      padding: 1.1rem 1rem;
+      border: 1px solid var(--line);
+      background: var(--sheet);
+    }
+
+    .button {
+      display: inline-block;
+      margin: 0.3rem 0 0.9rem;
+      padding: 0.75rem 1.05rem;
+      min-height: 44px;
+      background: var(--ink);
+      color: var(--paper);
+      text-decoration: none;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 650;
+    }
+
+    .button:hover, .button:focus-visible {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .caution {
+      color: var(--warn);
+      font-size: 1rem;
+    }
+
+    .notes { padding-left: 1.2rem; }
+
+    .notes li { margin: 0 0 0.85rem; }
+
+    .notes a { overflow-wrap: anywhere; }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 720px) {
+      .wrap { width: min(46rem, calc(100% - 4rem)); padding-top: 2.5rem; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .cards li:last-child { grid-column: 1 / -1; }
+    }
+
+    @media print {
+      :root {
+        --paper: #fff;
+        --sheet: #fff;
+        --ink: #000;
+        --muted: #222;
+        --line: #999;
+        --line-strong: #000;
+        --accent: #000;
+        --accent-hover: #000;
+        --quote: #f4f4f4;
+        --card: #fff;
+        --warn: #000;
+      }
+
+      body { font-size: 12pt; background: #fff; }
+      .skip, nav.jumps { display: none; }
+      .wrap { width: auto; padding: 0; }
+      a { color: #000; }
+      a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.85em;
+        word-break: break-all;
+      }
+      .button {
+        background: #fff;
+        color: #000;
+        border: 1px solid #000;
+      }
+      .cards { display: block; }
+      .cards li, blockquote, .comments { break-inside: avoid; }
+      h2 { break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to letter</a>
+  <div class="wrap">
+    <header class="letterhead">
+      <p class="kicker">Open letter to all parties</p>
+      <h1>Cancel should be as easy as subscribe.</h1>
+      <p class="addressee">To every federal, provincial and territorial political party in Canada.</p>
+      <p class="dateline">1 October 2026</p>
+      <nav class="jumps" aria-label="Sections of this letter">
+        <p>In this letter</p>
+        <ol>
+          <li><a href="#opening">The ask</a></li>
+          <li><a href="#pressure">The pressure is measurable</a></li>
+          <li><a href="#gap">One complaint shows the gap</a></li>
+          <li><a href="#bc">British Columbia moved</a></li>
+          <li><a href="#standard">The standard Canada needs</a></li>
+          <li><a href="#test">A test for every party</a></li>
+          <li><a href="#leadership">What leadership looks like</a></li>
+          <li><a href="#comments">Public comments</a></li>
+          <li><a href="#notes">Evidence notes</a></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="opening" aria-labelledby="opening-title">
+        <h2 id="opening-title">Subscription fairness is an affordability question</h2>
+        <p>Subscription fatigue is an affordability problem, a consumer-autonomy problem, and an enforcement problem. Recurring payment is now the ordinary way Canadians buy news, software, storage, fitness, groceries and entertainment. Signing up is often one clear step. Cancelling is often a search through menus, chats and retention screens. People pay for services they no longer want, and the cost is quiet enough to miss until the year is added up.</p>
+        <p>The ask of this letter is enforceable subscription fairness. A person should be able to leave a recurring contract as easily as they entered it. A regulator should be able to act on a documented pattern without waiting for many people to finish the same unpaid work. Protection should not depend on a postal code.</p>
+      </section>
+
+      <section id="pressure" aria-labelledby="pressure-title">
+        <h2 id="pressure-title">The pressure is measurable</h2>
+        <p>Statistics Canada reports that households spent $11.3 billion on cable, satellite and other program-distribution services, including streaming, in 2024. Prices for video and audio subscription services were 21 percent above 2019 and 52.7 percent above 2014. Spending on the medium rose. The price of the message rose faster. Source: <a href="https://www.statcan.gc.ca/o1/en/plus/8248-medium-cheaper-message-pricier">Statistics Canada, “The medium is cheaper — but the message is pricier.”</a></p>
+        <p>A 2024 survey by Hardbacon of 516 adults found an average of eight recurring subscriptions, against four that people estimated they had. Sixty-six percent said they had paid for a forgotten subscription. Seventy-three percent said they had missed a free-trial cancellation. This is a modest private survey, not an official estimate. It is useful as a signal of confusion, not as a national total. Source: <a href="https://www.newswire.ca/news-releases/survey-73-of-canadians-trapped-by-recurring-subscriptions-824802603.html">Hardbacon survey release, 2024.</a></p>
+        <p>A 2026 industry-sponsored survey by Roku of 2,043 adults found that Canadians spent about 13 minutes searching per viewing session. Choice has a time cost as well as a price. The survey is sponsored by a company in the market it describes, and should be read with that in mind. Source: <a href="https://newsroom.roku.com/news/2026/09/overwhelmed-by-choice-canadians-spend-about-80-hours-a/ubmyqakn-1790614194">Roku newsroom, September 2026.</a></p>
+      </section>
+
+      <blockquote>
+        <p>Subscription fatigue is what happens when recurring payment becomes the default, attention becomes the enforcement mechanism, and cancellation becomes unpaid work.</p>
+      </blockquote>
+
+      <section id="gap" aria-labelledby="gap-title">
+        <h2 id="gap-title">One complaint shows the gap</h2>
+        <p>A Canadian consumer held an annual membership with a major online grocery-delivery service. The membership renewed automatically. Support gave a written commitment to refund the renewal if the consumer cancelled within a few days. The consumer cancelled in time. The company then said the renewal was ineligible for a refund. Only after repeated escalation, and only after the consumer relied on the company’s own written promise, did the company refund the charge. It called the refund a one-time courtesy.</p>
+        <p>The consumer reported the matter to Consumer Protection BC to document a pattern, not to recover the money. The regulator first said the issue was outside its mandate. When asked which provisions it had considered, it said it would not open a complaint now. It would document the report, it might monitor, and it would reassess if more complaints arose.</p>
+        <p>That is the gap. A written promise was honoured only after the consumer did the work of proving it. The public file waits for other people to meet the same friction. Enforcement should not depend on many people each overcoming the same obstacle. One documented pattern is enough to open a file.</p>
+      </section>
+
+      <section id="bc" aria-labelledby="bc-title">
+        <h2 id="bc-title">British Columbia moved</h2>
+        <p>British Columbia’s stronger subscription rules took effect on 1 August 2026. A person may cancel before or after renewal. For a term of more than 60 days, the business must give notice between 30 and 60 days before renewal, the notice must include cancellation instructions, and an eligible prorated refund must be issued within 15 days. The statute is the <a href="https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/04002_00">Business Practices and Consumer Protection Act</a>. Consumer Protection BC explains the practical rules on its <a href="https://www.consumerprotectionbc.ca/consumer-help/subscription-contracts/">subscription contracts page</a>.</p>
+        <p>This is progress. It is not a national standard. A person who buys the same service from the same company should not have a weaker cancellation right because of a postal code. Ottawa has already named the design problem. The Office of Consumer Affairs describes <a href="https://ised-isde.canada.ca/site/office-consumer-affairs/en/dark-patterns">dark patterns</a> as design that steers people toward choices they would not otherwise make. The Competition Bureau has set out how <a href="https://competition-bureau.canada.ca/en/how-we-foster-competition/collaboration-and-partnerships/digital-design-support-informed-consumer-choices">digital design can support informed consumer choices</a>. Recognition is not the same as a right a person can use on a Tuesday afternoon.</p>
+      </section>
+
+      <section id="standard" aria-labelledby="standard-title">
+        <h2 id="standard-title">The standard Canada needs</h2>
+        <ol class="cards">
+          <li>
+            <span class="num">01</span>
+            <h3>Affirmative consent</h3>
+            <p>A subscription starts only when a person clearly agrees to the price, the term, and automatic renewal. A pre-checked box is not consent. Consent bundled into a longer form is not consent.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h3>Renewal reminders that work</h3>
+            <p>Before a paid renewal, the person receives a plain-language notice in time to cancel. The notice states the amount, the date, and the way to cancel. A notice buried in a promotional email is not a reminder.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h3>Equal cancellation</h3>
+            <p>Cancelling is as easy as signing up. If a person joined online, they can cancel online, in the same number of steps, without a phone call, a chat queue, or a retention maze.</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h3>Confirmation and refunds</h3>
+            <p>Cancellation is confirmed in writing at once. Money taken after a valid cancellation, or after a written promise to refund, is returned promptly. Where the law requires it, the refund is prorated.</p>
+          </li>
+          <li>
+            <span class="num">05</span>
+            <h3>No interface coercion</h3>
+            <p>The cancel path is visible. Buttons say what they do. A guilt screen is not the only route out. “Keep subscription” is not the only clear choice on the page.</p>
+          </li>
+          <li>
+            <span class="num">06</span>
+            <h3>Accessibility by design</h3>
+            <p>Consent, notices and cancellation work with assistive technology, clear language and enough time. A person should not need perfect eyesight, a steady hand, or a support worker to leave.</p>
+          </li>
+          <li>
+            <span class="num">07</span>
+            <h3>A national floor</h3>
+            <p>Federal, provincial and territorial rules set a minimum. A province may go further. No one should fall below the floor because of where they live or which government issued the licence.</p>
+          </li>
+          <li>
+            <span class="num">08</span>
+            <h3>Enforcement before exhaustion</h3>
+            <p>A regulator can open a pattern file from a documented complaint. It should not wait until many people have each finished the same chase. Monitoring is not a substitute for a decision.</p>
+          </li>
+          <li>
+            <span class="num">09</span>
+            <h3>Real consequences</h3>
+            <p>A breach has a cost: a refund, an administrative penalty, and a public record. A “one-time courtesy” after a broken written promise is not an enforcement system.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="test" aria-labelledby="test-title">
+        <h2 id="test-title">A test for every party</h2>
+        <p>These are yes-or-no questions. A qualified answer is still an answer, if the qualification is specific.</p>
+        <ol class="questions">
+          <li><strong>Cancel as easy as sign-up.</strong> Will your party require that cancelling a subscription be as easy as signing up, including online cancellation where the person joined online?</li>
+          <li><strong>Advance notice and affirmative consent.</strong> Will your party require advance notice of a paid renewal, and affirmative consent to automatic renewal?</li>
+          <li><strong>Prompt refunds for unlawful renewals.</strong> Will your party require a prompt refund when a renewal or charge was unlawful, or contrary to the company’s own written promise?</li>
+          <li><strong>Funded pattern investigations.</strong> Will your party fund regulators to investigate patterns, rather than only individual files opened after a person has already been exhausted?</li>
+          <li><strong>A timetable for coordination.</strong> Will your party publish a timetable for federal, provincial and territorial coordination on subscription fairness?</li>
+        </ol>
+      </section>
+
+      <section id="leadership" aria-labelledby="leadership-title">
+        <h2 id="leadership-title">What leadership looks like</h2>
+        <p>Leadership here is ordinary. It is a rule a person can use without a lawyer, and a regulator that does not treat the first complaint as an anecdote. Subscriptions should compete on value, not on inertia.</p>
+        <p>Parties will differ on the instrument. Some will prefer a federal floor under existing competition and consumer law. Some will prefer a coordinated amendment of provincial statutes, with British Columbia’s rules as the starting point. Either path can be honest. Neither path requires a person to beg for a courtesy that was already promised in writing.</p>
+        <p>The test is simple enough to answer in this session. Cancel should be as easy as subscribe. Notice should arrive before the money leaves. A documented pattern should be enough to open a file. Households are already paying for the absence of that standard.</p>
+      </section>
+
+      <section class="signature" aria-label="Signature">
+        <p>A Concerned Citizen</p>
+        <p>British Columbia</p>
+        <p>1 October 2026</p>
+      </section>
+
+      <section id="comments" class="comments" aria-labelledby="comments-title">
+        <h2 id="comments-title">Public comments</h2>
+        <p>Comments on this letter are welcome on the repository’s Issues page. Please keep examples general.</p>
+        <a class="button" href="https://github.com/jasincanada/open-letter-subscription-fairness/issues">Comment on the Issues page</a>
+        <p class="caution">Do not post account numbers, payment details, addresses, or private correspondence.</p>
+      </section>
+
+      <section id="notes" aria-labelledby="notes-title">
+        <h2 id="notes-title">Evidence notes</h2>
+        <ol class="notes">
+          <li>Statistics Canada, “The medium is cheaper — but the message is pricier.” Household spending of $11.3 billion in 2024 on cable, satellite and other program-distribution services, including streaming. Video and audio subscription prices 21 percent above 2019 and 52.7 percent above 2014. <a href="https://www.statcan.gc.ca/o1/en/plus/8248-medium-cheaper-message-pricier">https://www.statcan.gc.ca/o1/en/plus/8248-medium-cheaper-message-pricier</a></li>
+          <li>Hardbacon, 2024 survey of 516 adults, reported by CNW. Average of eight recurring subscriptions against four estimated; 66 percent paid for a forgotten subscription; 73 percent missed a free-trial cancellation. A modest private survey, not an official estimate. <a href="https://www.newswire.ca/news-releases/survey-73-of-canadians-trapped-by-recurring-subscriptions-824802603.html">https://www.newswire.ca/news-releases/survey-73-of-canadians-trapped-by-recurring-subscriptions-824802603.html</a></li>
+          <li>Roku, industry-sponsored survey of 2,043 adults, September 2026. About 13 minutes searching per viewing session. <a href="https://newsroom.roku.com/news/2026/09/overwhelmed-by-choice-canadians-spend-about-80-hours-a/ubmyqakn-1790614194">https://newsroom.roku.com/news/2026/09/overwhelmed-by-choice-canadians-spend-about-80-hours-a/ubmyqakn-1790614194</a></li>
+          <li>Business Practices and Consumer Protection Act, SBC 2004, c. 2. <a href="https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/04002_00">https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/04002_00</a></li>
+          <li>Consumer Protection BC, “Subscription contracts.” Cancel before or after renewal; for terms over 60 days, notice 30 to 60 days before renewal, cancellation instructions, and an eligible refund within 15 days. Rules described here as in effect 1 August 2026. <a href="https://www.consumerprotectionbc.ca/consumer-help/subscription-contracts/">https://www.consumerprotectionbc.ca/consumer-help/subscription-contracts/</a></li>
+          <li>Innovation, Science and Economic Development Canada, Office of Consumer Affairs, “Dark patterns.” <a href="https://ised-isde.canada.ca/site/office-consumer-affairs/en/dark-patterns">https://ised-isde.canada.ca/site/office-consumer-affairs/en/dark-patterns</a></li>
+          <li>Competition Bureau Canada, “Digital design to support informed consumer choices.” <a href="https://competition-bureau.canada.ca/en/how-we-foster-competition/collaboration-and-partnerships/digital-design-support-informed-consumer-choices">https://competition-bureau.canada.ca/en/how-we-foster-competition/collaboration-and-partnerships/digital-design-support-informed-consumer-choices</a></li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <p>Open letter. No account is required to read it. No analytics are collected by this page.</p>
+    </footer>
+  </div>
+</body>
+</html>
